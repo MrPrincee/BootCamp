@@ -5,7 +5,7 @@ from .models import Post
 
 def home_view(request):
     return  HttpResponse("Hello, world. You're at the polls page.")
-
+#test
 def api_view(request):
     data = {
         "message": "Hello, world. You're at the polls page.",
