@@ -1,11 +1,14 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-from .models import Post
+from .models import *
 from django.views import View
 
 def fetch_data(model):
     return list(model.objects.all().values())
 
+def get_all_posts(film_id):
+    film = Film.objects.get(id=film_id)
+    return list(film.post_set.all().values())
 
 class HomeView(View):
     def get(self, request):
@@ -28,4 +31,9 @@ class PostListView(View):
 class GetPostView(View):
     def get(self, request):
         return JsonResponse({"posts":fetch_data(Post)})
+
+
+class GetFilmPosts(View):
+    def get(self,request,film_id):
+        return JsonResponse({"posts":get_all_posts(film_id)})
 
