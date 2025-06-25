@@ -21,9 +21,10 @@ from core.views import *
 #test
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home_view,name='home'),
-    path('api/',api_view,name='api'),
+    path('',HomeView.as_view(),name='home'),
+    path('api/',ApiView.as_view(),name='api'),
 
-    path('blog/',post_list_view,name='blog'),
+    path('blog/',PostListView.as_view(),name='blog-list'),
+    path("get_post/",GetPostView.as_view(),name="get_post"),
 ]
 
