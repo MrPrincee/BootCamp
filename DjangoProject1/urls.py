@@ -25,6 +25,9 @@ urlpatterns = [
     path('api/',ApiView.as_view(),name='api'),
     path('blog/',PostListView.as_view(),name='blog-list'),
     path("get_post/",GetPostView.as_view(),name="get_post"),
-    path('films/<int:film_id>/', GetFilmPosts.as_view(), name='film-posts')
+    path('films/<int:film_id>/', GetFilmPosts.as_view(), name='film-posts'),
+    path('testdata',CreateTestData.as_view(),name='testdata'),
+
+    path("popularfilm",MostPopularFilmsView.as_view(),name="popularfilm"),
 ]
 

@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Post (models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100,db_index=True)
     content = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     film = models.ForeignKey('Film', on_delete=models.CASCADE)
@@ -11,7 +11,7 @@ class Post (models.Model):
 
 
 class Film(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100,db_index=True)
     content = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
